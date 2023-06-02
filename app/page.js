@@ -1,5 +1,5 @@
 'use client'
-import WheelComponent from "./react-wheel-of-prizes/dist/index";
+import WheelComponent from "react-wheel-of-prizes";
 
 export default function Home() {
 
