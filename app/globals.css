@@ -52,8 +52,8 @@
   transform: translateY(-50%) rotate(calc(var(0) * (360deg / var(0, 1))));
 
   color: whitesmoke;
-  text-align: center;
-  padding: 0 10px 0 50px;
+  text-align: right;
+  padding: 0 40px 0 50px;
   font-family: var(--wheel-font);
   /* background-color: #ffdb58; */
 }
