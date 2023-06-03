@@ -2,39 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
-.App {
-  display: flex;
-  flex-direction: column;
-  font-family: sans-serif;
+.wheel-container {
+  display: block;
+  position: relative;
+  margin-top: 30px;
+  text-align: center;
+  box-sizing: content-box;
   flex-basis: 100%;
-}
-
-h1{
-  display: flex;
-  font-size: xx-large;
-  font-weight: bold;
-  margin: 0 auto;
-  padding-top: 5rem;
 }
 
 .wheel {
-  padding-top: 5rem;
-  display: flex;
-  flex-basis: 100%;
-  justify-content: center;
-  align-items: center;
-  padding-left: 35%;
-  /* font-size: large; */
-}
-
-body{
-  display: flex;
-}
-
-.container{
-  padding-left: 10px;
-  margin: 0 auto;
-  justify-content: center;
-  display: flex;
+  display: block;
   position: relative;
+  box-sizing: content-box;
+  width: 500px;
+  height: 500px;
+  margin: auto;
+  border-radius: 50%;
+  background-color: #da3768;
+  border: 3px solid #080808;
+  overflow: hidden;
+  transform: rotate(0deg);
+  transition: transform 3s ease-out;
+}
+
+.wheel::after {
+  display: block;
+  position: absolute;
+  content: '';
+  background-color: var(--neutral-color);
+  width: 25px;
+  height: 25px;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.segment {
+  display: block;
+  position: absolute;
+  box-sizing:border-box;
+
+  top: 47%;
+  left: 50%;
+  width: 50%;
+  transform-origin: center left;
+  transform: translateY(-50%) rotate(calc(var(0) * (360deg / var(0, 1))));
+
+  color: whitesmoke;
+  text-align: center;
+  padding: 0 10px 0 50px;
+  font-family: var(--wheel-font);
+  /* background-color: #ffdb58; */
+}
+
+.segment.selected::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 20px solid #fff;
+}
+
+.spin-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.result {
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
